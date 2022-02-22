@@ -1,11 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
-import ResultSection from "../components/ResultSection";
-import SocialShareButton from "../components/button/SocialShareButton";
-import ResultData from "../data/ResultData";
-import ResetButton from "../components/button/ResetButton";
-import Footer from "../components/Footer";
+import ResultSection from "./components/ResultSection";
+import SocialShareButton from "./components/button/SocialShareButton";
+import ResultData from "./data/ResultData";
+import ResetButton from "./components/button/ResetButton";
+import Footer from "./components/Footer";
 
 export default function TestResult({ score, setScore }) {
     const { param } = useParams();
