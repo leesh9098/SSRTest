@@ -1,15 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import ResultData from "../data/ResultData";
 import SsunivLogo from "../images/sangsanguniv.png";
 import Giveaway from "../images/경품.png";
 
 const ResultSection = ({ param }) => {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const intoEvent = () => {
         if (window.localStorage.getItem("playLog") === 'y') {
-            navigate("/event/univtest/eventquiz");
+            router.push("/event/univtest/eventquiz");
         } else {
             alert("진행 기록이 없습니다. 다시하기 버튼을 눌러 처음부터 진행해주세요");
         }

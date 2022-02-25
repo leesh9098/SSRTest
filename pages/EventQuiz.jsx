@@ -1,7 +1,7 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Footer from "./components/Footer";
-import { quiz } from "./data/Quiz";
+import Footer from "../components/Footer";
+import { quiz } from "../data/Quiz";
 
 export default function EventQuiz() {
     const [stageNumber, setStageNumber] = useState(11);
@@ -11,7 +11,7 @@ export default function EventQuiz() {
     const [correct, setCorrect] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const handleAnswerList = (e) => {
         setAnswerList(e.target.value);
@@ -23,7 +23,7 @@ export default function EventQuiz() {
             if (correct) {
                 setShowErrorMessage(false);
                 setChecked(false);
-                navigate("/event/univtest/submit");
+                router("/event/univtest/submit");
             } else {
                 setShowErrorMessage(true);
             }

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { quiz } from "./data/Quiz";
+import { quiz } from "../data/Quiz";
 import countapi from "countapi-js";
+import { useRouter } from "next/router";
+import Style from "../styles/Style.module.css";
 
-export default function Quiz({ score, setScore, setHitCount }) {
+export default function Quiz({ score, setScore }) {
     const [stageNumber, setStageNumber] = useState(1);
     // const [score, setScore] = useState(parseInt(window.atob(window.sessionStorage.getItem("JUVEJTk4JTg0JUVDJTlFJUFDJUVDJUEwJTkwJUVDJTg4JTk4"))) || 0);
     const [leftQuiz, setLeftQuiz] = useState(quiz.length - 3);
@@ -14,7 +15,7 @@ export default function Quiz({ score, setScore, setHitCount }) {
 
     let sc = score;
 
-    let navigate = useNavigate();
+    const router = useRouter();
 
     const handleAnswerList = (e) => {
         setAnswerList(e.target.value);
@@ -45,8 +46,8 @@ export default function Quiz({ score, setScore, setHitCount }) {
                 setLeftQuiz(leftQuiz - 1);
                 setStageNumber(stageNumber + 1)
                 countapi.update('numberofuser', 'users', 1)
-                    .then(res => setHitCount(res.value))
-                navigate('/event/univtest/loading');
+                    // .then(res => res.value)
+                router.push('/event/univtest/loading');
             } else {
                 setChecked(false);
                 setScore(sc + scoreData);
@@ -64,7 +65,7 @@ export default function Quiz({ score, setScore, setHitCount }) {
     //     setStageNumber(stageNumber + 1);
     //     countapi.update('numberofuser', 'users', 1)
     //     .then(res => setHitCount(res.value))
-    //     navigate('/loading');
+    //     router.push('/loading');
     // }
 
     useEffect(() => {
@@ -86,7 +87,7 @@ export default function Quiz({ score, setScore, setHitCount }) {
     }, [checked]);
 
     return (
-        <div className="wrap">
+        <div className={Style.wrap}>
             {
                 // ****************입력형 퀴즈******************
                 // stageNumber === 5 ? 
@@ -109,42 +110,42 @@ export default function Quiz({ score, setScore, setHitCount }) {
                 // ****************버튼형 퀴즈*****************
                 <>
                     <div style={{ width: '280px' }}>
-                        <p className="museumBold quiztitletext">2022 대학생 능력고사</p>
-                        <div className="namebox">
-                            <div className="museumMedium nametext1">이름</div>
-                            <div className="museumMedium nametext2">김상상</div>
+                        <p className={`${Style.museumBold} ${Style.quiztitletext}`}>2022 대학생 능력고사</p>
+                        <div className={Style.namebox}>
+                            <div className={`${Style.museumMedium} ${Style.nametext1}`}>이름</div>
+                            <div className={`${Style.museumMedium} ${Style.nametext2}`}>김상상</div>
                         </div>
                     </div>
-                    <div className="line"></div>
-                    <div className="questionbox">
-                        <p className="museumMedium questiontext">{quiz[stageNumber - 1].question}</p>
+                    <div className={Style.line}></div>
+                    <div className={Style.questionbox}>
+                        <p className={`${Style.museumMedium} ${Style.questiontext}`}>{quiz[stageNumber - 1].question}</p>
                     </div>
-                    <div className="answerarea">
+                    <div className={Style.answerarea}>
                         {quiz[stageNumber - 1].answers.map((answer) => (
-                            <div className="answerbuttonbox" key={answer.text} onClick={() => setScoreData(answer.score)} >
+                            <div className={Style.answerbuttonbox} key={answer.text} onClick={() => setScoreData(answer.score)} >
                                 <div
                                     className={
                                         answerList === answer.quiznumber ?
-                                        'answerradiobox answerradiochecked' :
-                                        'answerradiobox'
+                                        `${Style.answerradiobox} ${Style.answerradiochecked}` :
+                                        Style.answerradiobox
                                     }
                                 >
                                     <input
                                         type="radio"
-                                        className="answerradio"
+                                        className={Style.answerradio}
                                         value={answer.quiznumber}
                                         id={answer.quiznumber}
                                         checked={answerList === answer.quiznumber}
                                         onChange={handleAnswerList}
                                         required
                                     />
-                                    <label className="suitExtraBold" htmlFor={answer.quiznumber}>✓</label>
+                                    <label className={Style.suitExtraBold} htmlFor={answer.quiznumber}>✓</label>
                                 </div>
                                 <label
                                     className={
-                                        `museumBold ${answerList === answer.quiznumber ?
-                                        'answertext answerradiochecked' :
-                                        'answertext'}`
+                                        `${Style.museumBold} ${answerList === answer.quiznumber ?
+                                        `${Style.answertext} ${Style.answerradiochecked}` :
+                                        Style.answertext}`
                                     }
                                     htmlFor={answer.quiznumber}
                                 >
@@ -157,13 +158,13 @@ export default function Quiz({ score, setScore, setHitCount }) {
             }
             {/* ***********진행 버튼*********** */}
             <button
-                className="suitExtraBold nextbutton"
+                className={`${Style.suitExtraBold} ${Style.nextbutton}`}
                 onClick={handleAnswer}
                 disabled={disable === false}
             >
                 다음
             </button>
-            <p className="suitRegular leftquiz">{`${leftQuiz}개 문제 남음`}</p>
+            <p className={`${Style.suitRegular} ${Style.leftquiz}`}>{`${leftQuiz}개 문제 남음`}</p>
         </div>
     )
 }

@@ -1,0 +1,514 @@
+@font-face {
+  font-family: '국립박물관문화재단클래식B';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '국립박물관문화재단클래식M';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식M.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+.museumBold {
+  font-family: '국립박물관문화재단클래식B', serif;
+}
+
+.museumMedium {
+  font-family: '국립박물관문화재단클래식M', serif;
+}
+
+.suitRegular {
+  font-family: 'SUIT-Regular', serif;
+}
+
+.suitMedium {
+  font-family: 'SUIT-Medium' serif;
+}
+
+.suitExtraBold {
+  font-family: 'SUIT-ExtraBold', serif;
+}
+
+.suitBold {
+  font-family: 'SUIT-Bold', serif;
+}
+
+.spoqa {
+  font-family: 'Spoqa Han Sans Neo', 'serif';
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 320px;
+  /* max-width: 320px; */
+  height: 100%;
+  /* padding: 30px 20px; */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* .wrap > * {
+  text-align: center;
+  margin: 0 auto;
+} */
+
+.resultwrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 320px;
+  /* max-width: 320px; */
+  /* padding: 30px 20px; */
+  padding-bottom: 230px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: url(/images/backgroundimage.png) center center no-repeat;
+  background-size: cover;
+}
+
+.submitwrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 320px;
+  /* max-width: 320px; */
+  padding-top: 30px;
+  padding-bottom: 100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: url(/images/backgroundimage.png) center center no-repeat;
+  background-size: cover;
+}
+
+.titlebox {
+  width: 235px;
+  height: 72px;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.titletext {
+  font-size: 32px;
+  text-align: left;
+}
+
+.subtitletext {
+  font-size: 16px;
+  color: rgb(89, 87, 87);
+  width: 232px;
+  height: 17px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+.quiztitletext {
+  font-size: 24px;
+  height: fit-content;
+  min-height: 26px;
+  margin-bottom: 10px;
+}
+
+.namebox {
+  text-align: right;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.nametext1 {
+  display: inline-block;
+  line-height: 22px;
+  font-size: 10px;
+  text-align: center;
+  width: 39px;
+  height: 24px;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+}
+
+.nametext2 {
+  display: inline-block;
+  line-height: 22px;
+  font-size: 10px;
+  text-align: center;
+  width: 49px;
+  height: 24px;
+  border: 1px solid rgb(0, 0, 0);
+  border-left: none;
+  box-sizing: border-box;
+}
+
+.line {
+  width: 280px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+}
+
+.questionbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  padding: 30px 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.questiontext {
+  font-size: 14px;
+  word-break: keep-all;
+}
+
+.imagearea {
+  width: 260px;
+  /* max-width: 280px; */
+  min-height: 160px;
+  margin-bottom: 20px;
+}
+
+.mainimage {
+  width: 100%;
+}
+
+.numberofuser {
+  font-size: 12px;
+  color: rgb(89, 87, 87);
+  font-weight: normal;
+  text-align: center;
+  height: fit-content;
+  min-height: 15px;
+  margin-bottom: 10px;
+}
+
+.answerarea {
+  width: 280px;
+  margin-bottom: 20px;
+}
+
+.answerbuttonbox {
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+.answerradiobox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 48px;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+}
+
+.answerradiochecked {
+  background-color: rgb(89, 87, 87);
+  color: rgb(255, 255, 255);
+}
+
+.answerradio {
+  display: none;
+}
+
+.answertext {
+  display: flex;
+  align-items: center;
+  min-width: 232px;
+  padding-left: 20px;
+  border: 1px solid rgb(0, 0, 0);
+  border-left: 0;
+  box-sizing: border-box;
+}
+
+.inputtextarea {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.inputtext {
+  width: 280px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+
+.nextbutton {
+  font-size: 20px;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  width: 280px;
+  height: 48px;
+  text-align: center;
+  background-color: rgb(193, 2, 48);
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.leftquiz {
+  color: rgb(89, 87, 87);
+  font-size: 12px;
+  font-weight: normal;
+  height: fit-content;
+  min-height: 16px;
+  text-align: center;
+}
+
+.logoarea {
+  width: 220px;
+  height: 24px;
+  background: url(/images/logo.png) center center no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.incorrectmessage {
+  color: rgb(255, 0, 0);
+}
+
+.resultpage {
+  /* position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  justify-content: normal; */
+  text-align: left;
+}
+
+.resultimage {
+  width: 320px;
+  margin-bottom: 20px;
+}
+
+.ssunivlogo {
+  width: 90px;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.giveawaytitle {
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.giveawayinfowrap {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 42px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.giveawayinfo{
+  font-size: 16px;
+  color: rgb(89, 87, 87);
+}
+
+.giveaway {
+  width: 280px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.eventinfowrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 31px;
+}
+
+.eventinfo {
+  font-size: 12px;
+  color: rgb(89, 87, 87);
+  text-align: left;
+}
+
+.inputregist {
+  display: block;
+  width: 280px;
+  height: 60px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.review {
+  display: block;
+  width: 280px;
+  height: 60px;
+  font-size: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.checkbox_area {
+  display: flex;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#check1, #check2 {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.personaldata {
+  width: 250px;
+  height: 36px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.terms {
+  float: right;
+  font-size: 14px;
+  color: rgb(89, 87, 87);
+  text-decoration: underline;
+}
+
+.retrybutton {
+  position: fixed;
+  right: 20px;
+  bottom: 138px;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: url(/images/btn_retry.png);
+  background-size: cover;
+  z-index: 10;
+}
+
+.urlcopybutton {
+  position: fixed;
+  right: 20px;
+  bottom: 58px;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: url(/images/btn_share.png);
+  background-size: cover;
+  z-index: 10;
+}
+
+.footerwrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  background-color: rgb(255, 255, 255);
+}
+
+.footertext {
+  font-size: 12px;
+  color: rgb(89, 87, 87);
+}
+
+.cleartitlewrap {
+  width: 280px;
+  height: 62px;
+}
+
+.cleartitletext {
+  font-size: 24px;
+  text-align: left;
+}
+
+.clearinfowrap {
+  width: 280px;
+  height: 41px;
+}
+
+.clearinfotext {
+  color: rgb(89, 87, 87);
+  text-align: left;
+}
+
+.ssunivlink {
+  width: 280px;
+  font-size: 14px;
+  color: rgb(89, 87, 87);
+  text-decoration: none;
+  text-align: left;
+}
+
+.score {    
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+  text-align: right;
+}

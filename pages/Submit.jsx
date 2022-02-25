@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import Footer from "./components/Footer";
 import SsunivLogo from "./images/sangsanguniv.png"
+import { useRouter } from "next/router";
 
 export default function Submit() {
     const [univ, setUniv] = useState("");
@@ -12,7 +12,7 @@ export default function Submit() {
     const [review, setReview] = useState("");
     const [check1, setCheck1] = useState(false);
     const [check2, setCheck2] = useState(false);
-    const navigate = useNavigate();
+    const router = useRouter();
 
     useEffect(() => {
         if (
@@ -20,9 +20,9 @@ export default function Submit() {
             window.localStorage.getItem("playLog") !== 'y'
         ) {
             alert("진행기록이 없습니다 처음 페이지로 이동합니다");
-            navigate("/event/univtest");
+            router("/event/univtest");
         }
-    }, [navigate])
+    }, [router])
 
     useEffect(() => {
         const setId = Math.random().toString(36).substring(2, 9);
@@ -56,13 +56,13 @@ export default function Submit() {
     const onSubmit = async(e) => {
         e.preventDefault();
 
-        await axios.get(`${process.env.REACT_APP_API}/serverTime`)
+        await axios.get(`https://dev.trepick.com/serverTime`)
             .then((success) => {
                 const server = success.data.serverTime;
                 window.sessionStorage.setItem(window.btoa("submit time"), window.btoa(server));
             })
 
-        await axios.post(`${process.env.REACT_APP_API}/event-log`, { // 전송할 서버 url
+        await axios.post(`https://dev.trepick.com/event-log`, { // 전송할 서버 url
             userId: window.localStorage.getItem("userid"),
             storyName: "2022 대학생 능력고사",
             client: "상상유니브 인천지사",
@@ -83,10 +83,10 @@ export default function Submit() {
         })
             .then((success) => {
                 // openModalFinish();
-                if(window.confirm("제출되었습니다 처음으로 돌아갑니다")){
+                if (window.confirm("제출되었습니다 처음으로 돌아갑니다")) {
                     window.localStorage.clear();
                     window.sessionStorage.clear();
-                    navigate('/event/univtest');
+                    router.push("/event/univtest");
                 }
                 console.log(success);
             })

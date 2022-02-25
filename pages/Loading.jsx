@@ -1,5 +1,5 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 
 const getScore = (sc) => {
@@ -18,7 +18,7 @@ const getScore = (sc) => {
 
 export default function Loading({ score }) {
     const [loadingMessage, setLoagingMessage] = useState("채점 중");
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const resultPage = getScore(score);
 
@@ -31,8 +31,8 @@ export default function Loading({ score }) {
     }, [loadingMessage, score]);
 
     useEffect(() => {
-        setTimeout(() => navigate(`/event/univtest/result/${resultPage}`), 2000);
-    }, [navigate, resultPage]);
+        setTimeout(() => router.push(`/result/${resultPage}`), 2000);
+    }, [router, resultPage]);
 
     return (
         <div className="wrap">
