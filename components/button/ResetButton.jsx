@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Style from "../../styles/Style.module.css";
 
-export default function ResetButton({ to, setScore }) {
+export default function ResetButton({ href, setScore }) {
     const reset = () => {
-        window.sessionStorage.clear();
-        setScore(0)
+        // window.sessionStorage.clear();
+        setScore(0);
     }
 
     return (
         <>
-            {to ? 
-            <Link to={to}>
-                <button className="retrybutton" onClick={reset} />
+            {href ? 
+            <Link href={href}>
+                <button className={Style.retrybutton} onClick={reset} />
             </Link> :
-            <button className="retrybutton" onClick={reset} />
+                <button className={Style.retrybutton} onClick={reset} />
             }
         </>
     )

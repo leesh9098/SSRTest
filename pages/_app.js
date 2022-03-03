@@ -4,13 +4,16 @@
 // import TestResult from "./TestResult";
 // import EventQuiz from "./EventQuiz";
 // import Submit from "./Submit";
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const [score, setScore] = useState(0);
+  
   return (
     <Layout>
-      <Component {...pageProps} />
+      <Component {...pageProps} score={score} setScore={setScore} />
     </Layout>
   )
   // return (

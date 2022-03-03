@@ -47,7 +47,7 @@ export default function Quiz({ score, setScore }) {
                 setStageNumber(stageNumber + 1)
                 countapi.update('numberofuser', 'users', 1)
                     // .then(res => res.value)
-                router.push('/event/univtest/loading');
+                router.push('/loading');
             } else {
                 setChecked(false);
                 setScore(sc + scoreData);

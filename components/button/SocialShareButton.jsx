@@ -4,33 +4,35 @@
 // import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon } from "react-share";
 // import CopyToClipboard from "react-copy-to-clipboard";
 
-import { useParams } from "react-router";
+import { useRouter } from "next/router";
 import ResultData from "../../data/ResultData";
+import Style from "../../styles/Style.module.css";
 
 export default function SocialShareButton() {
-    const { param } = useParams();
-    const currentUrl = window.location.href;
+    const router = useRouter();
+    const { result } = router.query;
+    const currentUrl = `http://localhost:3000/${router.query.result}`;
 
-    const setResultUrl = () => {
-        let resultUrl;
-        if (currentUrl.includes('level1')) {
-            resultUrl = 'https://trepick.page.link/lv1'
-        } else if (currentUrl.includes('level2')) {
-            resultUrl = 'https://trepick.page.link/lv2'
-        } else if (currentUrl.includes('level3')) {
-            resultUrl = 'https://trepick.page.link/lv3'
-        } else {
-            resultUrl = 'https://trepick.page.link/lv4'
-        }
-        return resultUrl;
-    }
+    // const setResultUrl = () => {
+    //     let resultUrl;
+    //     if (currentUrl.includes('level1')) {
+    //         resultUrl = 'https://trepick.page.link/lv1'
+    //     } else if (currentUrl.includes('level2')) {
+    //         resultUrl = 'https://trepick.page.link/lv2'
+    //     } else if (currentUrl.includes('level3')) {
+    //         resultUrl = 'https://trepick.page.link/lv3'
+    //     } else {
+    //         resultUrl = 'https://trepick.page.link/lv4'
+    //     }
+    //     return resultUrl;
+    // }
 
     const copyUrl = () => {
         if (navigator.share) {
             navigator.share({
-                title: ResultData[param]['ogTitle'],
-                text: ResultData[param]['ogDescription'],
-                url: setResultUrl()
+                title: ResultData[result]['ogTitle'],
+                text: ResultData[result]['ogDescription'],
+                url: currentUrl
             })
         } else {
             alert("공유하기를 지원하지 않는 기기입니다.");
@@ -87,7 +89,7 @@ export default function SocialShareButton() {
                 </button>
             /> */}
             {/* <CopyToClipboard text={currentUrl} onCopy={() => alert("복사되었습니다")}> */}
-                <button className="urlcopybutton" onClick={copyUrl} />
+                <button className={Style.urlcopybutton} onClick={copyUrl} />
             {/* </CopyToClipboard> */}
         </div>
     )

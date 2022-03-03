@@ -31,7 +31,7 @@ export default function Loading({ score }) {
     }, [loadingMessage, score]);
 
     useEffect(() => {
-        setTimeout(() => router.push(`/result/${resultPage}`), 2000);
+        setTimeout(() => router.push(`/result/[result]`, `/result/${resultPage}`), 2000);
     }, [router, resultPage]);
 
     return (
